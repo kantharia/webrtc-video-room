@@ -1,18 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>Webrtc video room</title>
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   <style>
-  	body {
-		background: #333;
-		margin: 0;
-    	color: #eee;
-	}
+    body {
+      margin: 0;
+      color: #eee;
+      background: linear-gradient( -45deg,
+      #008cff,
+      #3e00ff,
+      #a300ff,
+      #ff00c8,
+      #00d0ff);
+      background-size: 1800% 1800%;
+      -webkit-animation: Gradient 30s ease infinite;
+      -moz-animation: Gradient 30s ease infinite;
+      animation: Gradient 30s ease infinite;
+    }
+
+    @-webkit-keyframes Gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @-moz-keyframes Gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes Gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
   </style>
 </head>
+
 <body itemscope="itemscope" itemtype="http://schema.org/WebPage">
   <main id="app" role="main" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="https://schema.org/SoftwareApplication">
-  <script src="/bundle.js" async></script>
+    <script src="/bundle.js" async></script>
 </body>
+
 </html>
