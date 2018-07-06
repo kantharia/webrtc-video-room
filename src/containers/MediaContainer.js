@@ -94,7 +94,39 @@ export default class MediaBridge extends React.Component {
     // make sure your offer/answer role does not change. If user A does a SLD
     // with type=offer initially, it must do that during  the whole session
     this.pc = new RTCPeerConnection({
-      iceServers: [{ url: "stun:s3.xirsys.com" }]
+      iceServers: [
+        { url: "stun:s1.xirsys.com" },
+        {
+          username: "6d5f8382-80e0-11e8-8ec4-b8965d0fc199",
+          url: "turn:s1.xirsys.com:80?transport=udp",
+          credential: "6d5f8468-80e0-11e8-929b-d7fcae698d6e"
+        },
+        {
+          username: "6d5f8382-80e0-11e8-8ec4-b8965d0fc199",
+          url: "turn:s1.xirsys.com:3478?transport=udp",
+          credential: "6d5f8468-80e0-11e8-929b-d7fcae698d6e"
+        },
+        {
+          username: "6d5f8382-80e0-11e8-8ec4-b8965d0fc199",
+          url: "turn:s1.xirsys.com:80?transport=tcp",
+          credential: "6d5f8468-80e0-11e8-929b-d7fcae698d6e"
+        },
+        {
+          username: "6d5f8382-80e0-11e8-8ec4-b8965d0fc199",
+          url: "turn:s1.xirsys.com:3478?transport=tcp",
+          credential: "6d5f8468-80e0-11e8-929b-d7fcae698d6e"
+        },
+        {
+          username: "6d5f8382-80e0-11e8-8ec4-b8965d0fc199",
+          url: "turns:s1.xirsys.com:443?transport=tcp",
+          credential: "6d5f8468-80e0-11e8-929b-d7fcae698d6e"
+        },
+        {
+          username: "6d5f8382-80e0-11e8-8ec4-b8965d0fc199",
+          url: "turns:s1.xirsys.com:5349?transport=tcp",
+          credential: "6d5f8468-80e0-11e8-929b-d7fcae698d6e"
+        }
+      ]
     });
     // when our browser gets a candidate, send it to the peer
     this.pc.onicecandidate = e => {
@@ -109,7 +141,7 @@ export default class MediaBridge extends React.Component {
     };
     // when the other side added a media stream, show it on screen
     this.pc.onaddstream = e => {
-      console.log("onaddstream", e);
+      console.log("onaddstream -> ", e);
       this.remoteStream = e.stream;
       this.remoteVideo.srcObject = this.remoteStream;
       this.setState({ bridge: "established" });
