@@ -94,7 +94,7 @@ export default class MediaBridge extends React.Component {
     // make sure your offer/answer role does not change. If user A does a SLD
     // with type=offer initially, it must do that during  the whole session
     this.pc = new RTCPeerConnection({
-      iceServers: [{ url: "stun:stun.l.google.com:19302" }]
+      iceServers: [{ url: "stun:s3.xirsys.com" }]
     });
     // when our browser gets a candidate, send it to the peer
     this.pc.onicecandidate = e => {
