@@ -5,18 +5,18 @@ import { connect } from "react-redux";
 import store from "../store";
 import io from "socket.io-client";
 
-var getUserMedia =
-  navigator.getUserMedia ||
-  navigator.mediaDevices ||
-  navigator.webkitGetUserMedia ||
-  navigator.mozGetUserMedia;
+// var getUserMedia =
+//   navigator.getUserMedia ||
+//   navigator.mediaDevices ||
+//   navigator.webkitGetUserMedia ||
+//   navigator.mozGetUserMedia;
 
 class RoomPage extends React.Component {
   constructor(props) {
     super(props);
   }
 
-  getUserMedia = navigator
+  getUserMedia = navigator.mediaDevices
     .getUserMedia({
       audio: true,
       video: true
