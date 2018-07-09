@@ -7,7 +7,7 @@ import Home from "./containers/HomePage";
 import Room from "./containers/RoomPage";
 import NotFound from "./components/NotFound";
 import styles from "./app.css";
-import "webrtc-adapter";
+// import "webrtc-adapter";
 
 render(
   <Provider store={store}>

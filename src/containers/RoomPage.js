@@ -5,16 +5,24 @@ import { connect } from "react-redux";
 import store from "../store";
 import io from "socket.io-client";
 
+var getUserMedia =
+  navigator.getUserMedia ||
+  navigator.mediaDevices ||
+  navigator.webkitGetUserMedia ||
+  navigator.mozGetUserMedia;
+
 class RoomPage extends React.Component {
   constructor(props) {
     super(props);
   }
+
   getUserMedia = navigator
     .getUserMedia({
       audio: true,
       video: true
     })
     .catch(e => alert("getUserMedia() error: " + e.name));
+
   socket = io.connect();
   componentWillMount() {
     this.props.addRoom();
