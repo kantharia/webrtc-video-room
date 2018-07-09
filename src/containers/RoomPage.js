@@ -9,7 +9,7 @@ class RoomPage extends React.Component {
   constructor(props) {
     super(props);
   }
-  getUserMedia = navigator.mediaDevices
+  getUserMedia = navigator
     .getUserMedia({
       audio: true,
       video: true
